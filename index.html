@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Tlahtoani</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #E8FFA5;  /* Verde limón */
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --tlahtoani-blue: #6EC3F5; /* Azul bajito */
+            --aventuras-orange: #FFA726; /* Naranja */
+        }
+        
+        body {
+            background-color: var(--bg);
+            font-family: 'Comic Neue', cursive;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 6vh 5vw;
+            position: relative;
+        }
+        
+        .title {
+            font-family: 'Bungee', cursive;
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            color: var(--tlahtoani-blue);
+            text-shadow: 3px 3px 0 white, 6px 6px 0 rgba(0,0,0,0.1);
+            display: inline-block;
+            padding: 0 15px;
+            animation: bounce 2s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        
+        .description {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: var(--aventuras-orange);
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .description::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            position: absolute;
+            right: -10px;
+            color: var(--aventuras-orange);
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+            gap: 1.5vmin;
+            padding: 2vmin;
+            width: 100%;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: var(--card-bg);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 3px solid var(--tlahtoani-blue);
+            aspect-ratio: 4/3;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--aventuras-orange);
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: clamp(2rem, 12vw, 3.5rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">COLEGIO TLAHTONAI</h1>
+        <p class="description" id="dynamic-text"></p>
+    </header>
+    
+    <div class="gallery">
+        <!-- Imágenes locales en la misma carpeta -->
+        <div class="gallery-item">
+            <img src="imagen1.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 1">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen2.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 2">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen3.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 3">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen4.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 4">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen5.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 5">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen6.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 6">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen7.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 7">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen8.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 8">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen9.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 9">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen10.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 10">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen11.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 11">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen12.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 12">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen13.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 13">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen14.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 14">
+        </div>
+        <div class="gallery-item">
+            <img src="imagen15.jpg" class="gallery-img" loading="lazy" alt="Actividad escolar 15">
+        </div>
+    </div>
+
+    <script>
+        // Efecto de rebote para el título
+        let bounceUp = true;
+        setInterval(() => {
+            const title = document.querySelector('.title');
+            if (bounceUp) {
+                title.style.transform = 'translateY(-10px)';
+            } else {
+                title.style.transform = 'translateY(0)';
+            }
+            bounceUp = !bounceUp;
+        }, 1000);
+        
+        // Efecto máquina de escribir
+        const text = "¡Mira nuestras aventuras escolares!";
+        let i = 0;
+        const desc = document.getElementById('dynamic-text');
+        
+        function typeWriter() {
+            if (i < text.length) {
+                desc.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                setTimeout(() => {
+                    desc.textContent = '';
+                    i = 0;
+                    typeWriter();
+                }, 3000);
+            }
+        }
+        
+        setTimeout(typeWriter, 1500);
+    </script>
+</body>
+</html>
