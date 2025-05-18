@@ -10,7 +10,6 @@
     <style>
         :root {
             --bg: #E8FFA5;  /* Verde limón */
-            --card-bg: rgba(255, 255, 255, 0.92);
             --tlahtoani-blue: #6EC3F5; /* Azul bajito */
             --aventuras-orange: #FFA726; /* Naranja */
         }
@@ -24,13 +23,15 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            text-align: center; /* Centrado general del texto */
         }
         
         .header {
-            text-align: center;
             padding: 6vh 5vw;
             position: relative;
             flex-shrink: 0;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .title {
@@ -47,12 +48,20 @@
             to { transform: translateY(-10px); }
         }
         
+        .description-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        
         .description {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             font-weight: 700;
             color: var(--aventuras-orange);
             position: relative;
             display: inline-block;
+            text-align: center;
+            padding: 0 20px;
         }
         
         .description::after {
@@ -132,7 +141,9 @@
 <body>
     <header class="header">
         <h1 class="title">COLEGIO TLAHTONAI</h1>
-        <p class="description" id="dynamic-text"></p>
+        <div class="description-container">
+            <p class="description" id="dynamic-text"></p>
+        </div>
     </header>
     
     <div class="gallery-container">
