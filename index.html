@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg: #E8FFA5;  /* Verde limón */
@@ -24,6 +25,33 @@
             flex-direction: column;
             min-height: 100vh;
             text-align: center;
+        }
+        
+        /* Botón de inicio */
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 0.6rem 1.2rem;
+            background-color: white;
+            color: var(--tlahtoani-blue);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            background-color: var(--tlahtoani-blue);
+            color: white;
         }
         
         .header {
@@ -135,12 +163,24 @@
                 max-width: 500px;
                 gap: 1.5rem;
             }
+            
+            .home-button {
+                top: 15px;
+                left: 15px;
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Botón de Inicio añadido aquí -->
+    <a href="https://colegiotlahtoani.com/" class="home-button">
+        <i class="fas fa-home"></i> Inicio
+    </a>
+    
     <header class="header">
-        <h1 class="title">GALERÍA TLAHTOANI</h1> <!-- Título cambiado aquí -->
+        <h1 class="title">GALERÍA TLAHTOANI</h1>
         <div class="description-container">
             <p class="description" id="dynamic-text"></p>
         </div>
